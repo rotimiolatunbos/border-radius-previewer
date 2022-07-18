@@ -3,10 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "lodash": "^4.17.10",
+    "numeral": "^2.0.6",
+    "prop-types": "^15.6.2",
     "react": "^18.1.0",
     "react-code-blocks": "^0.0.8",
     "react-dom": "^18.1.0",
     "react-is": ">= 16.8.0",
+    "react-numeric-textbox": "^1.0.7",
     "styled-components": "^5.3.5"
   },
   "scripts": {
