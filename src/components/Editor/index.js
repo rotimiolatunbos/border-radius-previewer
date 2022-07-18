@@ -9,7 +9,7 @@ import {
 
 import BorderRadiusInput from './BorderRadiusInput';
 import DimensionsInput from './DimensionsInput';
-import { StyledDiv } from './styled';
+import { StyledDiv, CSSContainer } from './styled';
 
 const code = `
   border: 1px solid black;
@@ -59,4 +59,4 @@ const Editor = ({
   );
 };
 
-export default () => <p>Editor</p>;
+export default Editor;

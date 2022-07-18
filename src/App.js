@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Box, BoxContainer, EditorContainer, Container } from './styled';
-import Editor from './Editor';
+import Editor from './components/Editor';
 import Header from './Header';
 
 import './style.css';
