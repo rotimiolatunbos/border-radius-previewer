@@ -1,5 +1,11 @@
 import React from 'react';
+import { CopyBlock, CodeBlock, dracula, googlecode, obsidian } from 'react-code-blocks';
+
 import styled from 'styled-components';
+
+const code = `
+  border: 1px solid black;
+`;
 
 const StyledDiv = styled.div`
   background-color: #FFFFFF;
@@ -32,6 +38,10 @@ const StyledInput = styled.input.attrs((props) => ({
   outline: transparent;
 `;
 
+const CSSContainer = styled.div`
+  margin: 15px 0;
+`;
+
 const StyleInput = (props) => {
   return (
     <StyledLabel>
@@ -46,6 +56,75 @@ const StyleInput = (props) => {
   );
 };
 
+const DimensionsInput = ({ boxHeight, boxWidth, handleChange }) => (
+  <Row>
+    <StyleInput
+      onChange={handleChange}
+      label="width"
+      name="width"
+      value={boxWidth}
+    />
+    <StyleInput
+      onChange={handleChange}
+      label="height"
+      name="height"
+      value={boxHeight}
+    />
+  </Row>
+);
+
+const BorderRadiusInput = ({
+  handleChange,
+  topLeft,
+  topRight,
+  bottomLeft,
+  bottomRight,
+}) => (
+  <>
+    <Row>
+      <StyleInput
+        onChange={handleChange}
+        label="top left"
+        name="topLeft"
+        value={topLeft}
+      />
+      <StyleInput
+        onChange={handleChange}
+        label="top right"
+        name="topRight"
+        value={topRight}
+      />
+    </Row>
+    <Row>
+      <StyleInput
+        onChange={handleChange}
+        label="bottom left"
+        name="bottomLeft"
+        value={bottomLeft}
+      />
+      <StyleInput
+        onChange={handleChange}
+        label="bottom right"
+        name="bottomRight"
+        value={bottomRight}
+      />
+    </Row>
+  </>
+);
+
+const CSSDisplay = () => (
+  <CSSContainer>
+    <CopyBlock
+      text={code}
+      language={'css'}
+      showLineNumbers={false}
+      startingLineNumber={1}
+      theme={obsidian}
+      codeBlock={true}
+    />
+  </CSSContainer>
+);
+
 const Editor = ({
   handleChange,
   boxWidth,
@@ -58,50 +137,21 @@ const Editor = ({
   return (
     <StyledDiv>
       <h3>Dimensions</h3>
-      <Row>
-        <StyleInput
-          onChange={handleChange}
-          label="width"
-          name="width"
-          value={boxWidth}
-        />
-        <StyleInput
-          onChange={handleChange}
-          label="height"
-          name="height"
-          value={boxHeight}
-        />
-      </Row>
+      <DimensionsInput
+        boxHeight={boxHeight}
+        boxWidth={boxWidth}
+        handleChange={handleChange}
+      />
       <h3>Border</h3>
-      <Row>
-        <StyleInput
-          onChange={handleChange}
-          label="top left"
-          name="topLeft"
-          value={topLeft}
-        />
-        <StyleInput
-          onChange={handleChange}
-          label="top right"
-          name="topRight"
-          value={topRight}
-        />
-      </Row>
-      <Row>
-        <StyleInput
-          onChange={handleChange}
-          label="bottom left"
-          name="bottomLeft"
-          value={bottomLeft}
-        />
-        <StyleInput
-          onChange={handleChange}
-          label="bottom right"
-          name="bottomRight"
-          value={bottomRight}
-        />
-      </Row>
+      <BorderRadiusInput
+        handleChange={handleChange}
+        topLeft={topLeft}
+        topRight={topRight}
+        bottomLeft={bottomLeft}
+        bottomRight={bottomRight}
+      />
       <h3>CSS</h3>
+      <CSSDisplay />
     </StyledDiv>
   );
 };

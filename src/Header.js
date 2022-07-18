@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   background-color: #80DAD6;
-  z-index: 1000;
+  // z-index: 1000;
   position: absolute;
   left: 0;
   right: 0;

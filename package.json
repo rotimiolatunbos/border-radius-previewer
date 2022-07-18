@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "react": "^18.1.0",
+    "react-code-blocks": "^0.0.8",
     "react-dom": "^18.1.0",
     "react-is": ">= 16.8.0",
     "styled-components": "^5.3.5"
